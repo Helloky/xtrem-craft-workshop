@@ -11,7 +11,7 @@ class MoneyCalculator
      * @param float $amount2
      * @return float
      */
-    public static function add(float $amount, Currency $currency, float $amountToAdd): float
+    public static function add(float $amount, float $amountToAdd): float
     {
         return $amount + $amountToAdd;
     }
@@ -23,7 +23,7 @@ class MoneyCalculator
         * @param float $amount2
         * @return float
         */
-    public static function times(float $amount, Currency $currency, int $value): float
+    public static function times(float $amount, int $value): float
     {
         return $amount * $value;
     }
@@ -34,7 +34,7 @@ class MoneyCalculator
     * @param Currency $currency
     * @return float
     */
-    public static function divide(float $amount, Currency $currency, int $value): float
+    public static function divide(float $amount, int $value): float
     {
         return $amount / $value;
     }
