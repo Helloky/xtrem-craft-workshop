@@ -11,9 +11,9 @@ class MoneyCalculator
      * @param float $amount2
      * @return float
      */
-    public static function add(float $amount, Currency $currency, float $amount2): float
+    public static function add(float $amount, Currency $currency, float $amountToAdd): float
     {
-        return $amount + $amount2;
+        return $amount + $amountToAdd;
     }
 
     /*

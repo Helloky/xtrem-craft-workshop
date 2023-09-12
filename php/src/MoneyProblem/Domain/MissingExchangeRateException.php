@@ -7,11 +7,11 @@ class MissingExchangeRateException extends \Exception
 
     /**
      * MissingExchangeRateException constructor.
-     * @param Currency $currency1
-     * @param Currency $currency2
+     * @param Currency $firstCurrency
+     * @param Currency $otherCurrency
      */
-    public function __construct(Currency $currency1, Currency $currency2)
+    public function __construct(Currency $firstCurrency, Currency $otherCurrency)
     {
-        parent::__construct(sprintf('%s->%s', $currency1, $currency2));
+        parent::__construct(sprintf('%s->%s', $firstCurrency, $otherCurrency));
     }
 }
