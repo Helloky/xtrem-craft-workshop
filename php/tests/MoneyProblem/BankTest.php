@@ -38,5 +38,4 @@ class BankTest extends TestCase
 
         $this->assertEquals(13, $bank->convert(10, Currency::EUR(), Currency::USD()));
     }
-
 }

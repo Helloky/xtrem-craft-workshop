@@ -1,0 +1,20 @@
+Doc a mettre : description et variables
+fonctions a ecrire en camelCase 
+
+indentation du code 
+
+magik string 
+
+probleme dans la devise 
+
+trop de detail
+
+parametre non utilisé 
+
+invariant non explicité 
+
+
+
+
+
+
