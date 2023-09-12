@@ -3,15 +3,19 @@ fonctions a ecrire en camelCase
 
 indentation du code 
 
-magik string 
+Magik string 
 
-probleme dans la devise 
+Probleme dans la devise 
 
 trop de detail
 
 parametre non utilisé 
 
 invariant non explicité 
+
+Huzaifah PANCHBHAYA, Ali OZTURK, Anass Kerchaoui, Arno Tomé
+
+Language : PHP
 
 
 
