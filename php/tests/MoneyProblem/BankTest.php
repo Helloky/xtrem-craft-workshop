@@ -31,7 +31,7 @@ class BankTest extends TestCase
         $bank = Bank::create($eurCurrency, $usdCurrency, $rate);
         $initialAmount = 10;
 
-        $convertedAmount = $bank->convert($initialAmount, $eurCurrency, $usdCurrency);
+        $convertedAmount = $bank->convert($initialAmount, $eurCurrency, $eurCurrency);
 
         $this->assertEquals($initialAmount, $convertedAmount);
     }
