@@ -63,3 +63,4 @@ class Bank
             : $amount * $this->exchangeRates[($currency1 . '->' . $currency2)];
     }
 }
+

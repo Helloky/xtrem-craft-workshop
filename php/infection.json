@@ -8,9 +8,7 @@
     "mutators": {
         "@default": true
     },
-    "logs" : {
-        
-        "html": "infection.html"
-        
+    "logs": {
+        "html": "infection-report"
     }
 }
