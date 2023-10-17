@@ -1,21 +1,30 @@
 # Example Mapping
 
-## Format de restitution
-*(rappel, pour chaque US)*
-
-```markdown
+<!-- ```markdown -->
 ## Titre de l'US (post-it jaunes)
 
-> Question (post-it rouge)
+> Comment caclculer les arrondis lors d'une conversion ?
 
-### Règle Métier (post-it bleu)
+> Comment faire quand il y a un taux de change manquant, soit impossible à convertir ?
 
-Exemple: (post-it vert)
+### Convertir un montant dans la même devise
 
-- [ ] 5 USD + 10 EUR = 17 USD
-```
+Portfolio 20 EUR 30 EUR
+-> évaluer en EUR
+- [ ] 20 EUR + 30 EUR = 50 EUR 
 
-Vous pouvez également joindre une photo du résultat obtenu en utilisant les post-its.
+### Convertir un montant dans différentes devises 
+
+Portfolio 5 EUR 10 USD
+-> évaluer en EUR
+-> Taux de change USD : EUR 1.2
+- [ ] 5 EUR + 10 USD = 17 EUR 
+
+<!-- ``` -->
+
+### Photo du résultat obtenu avec les post-its.
+![Photo du résultat obtenu avec les post-its](./IMG_5283.jpg)
+
 
 ## Évaluation d'un portefeuille
 
