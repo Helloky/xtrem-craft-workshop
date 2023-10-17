@@ -41,6 +41,11 @@ jobs:
 
     - name: Run infection
       run: php vendor/bin/infection
-
+      
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+          name: code-coverage-report
+          path: output/test/infection.html
     
 
