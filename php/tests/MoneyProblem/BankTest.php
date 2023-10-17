@@ -10,6 +10,19 @@ use PHPUnit\Framework\TestCase;
 class BankTest extends TestCase
 {
 
+    //Green test   
+    public function test_create_returns_bank()
+    {
+        $eurCurrency = Currency::EUR();
+        $usdCurrency = Currency::USD();
+        $rate = 1.2;
+
+        $bank = Bank::create($eurCurrency, $usdCurrency, $rate);
+
+        $this->assertInstanceOf(Bank::class, $bank);
+    }
+
+
     public function test_convert_eur_to_usd_returns_float()
     {
         $eurCurrency = Currency::EUR();
@@ -30,6 +43,20 @@ class BankTest extends TestCase
         $rate = 1.2;
         $bank = Bank::create($eurCurrency, $usdCurrency, $rate);
         $initialAmount = 10;
+
+        $convertedAmount = $bank->convert($initialAmount, $eurCurrency, $eurCurrency);
+
+        $this->assertEquals($initialAmount, $convertedAmount);
+    }
+
+    // Red test
+    public function test_convert_eur_to_eur_returns_same_value_red()
+    {
+        $eurCurrency = Currency::EUR();
+        $usdCurrency = Currency::USD();
+        $rate = 1.2;
+        $bank = Bank::create($eurCurrency, $usdCurrency, $rate);
+        $initialAmount = 11;
 
         $convertedAmount = $bank->convert($initialAmount, $eurCurrency, $eurCurrency);
 
