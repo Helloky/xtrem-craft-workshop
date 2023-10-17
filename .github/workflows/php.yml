@@ -41,6 +41,11 @@ jobs:
 
     - name: Run infection
       run: php vendor/bin/infection
-
+      
+    - name: Archive infection raport
+      uses: actions/upload-artifact@v3
+      with:
+          name: infection-report
+          path: output/test/infection.html
     
 
