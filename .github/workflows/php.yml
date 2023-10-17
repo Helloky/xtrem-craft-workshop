@@ -38,3 +38,9 @@ jobs:
 
     - name: Run test
       run: php vendor/bin/phpunit
+
+    - name: Run infection
+      run: php vendor/bin/infection
+
+    
+
