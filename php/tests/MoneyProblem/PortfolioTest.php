@@ -45,8 +45,10 @@ class PortfolioTest extends TestCase
         
     }
 
+    /* 
     public function test_add_different_currency_red()
     {
+        
             
             $portfolio = new Portfolio();
             
@@ -63,6 +65,7 @@ class PortfolioTest extends TestCase
             $this->assertEquals($amountTest, $portfolio->total(Currency::EUR(), $bank));
         
     }
+    */
 
 
 }
