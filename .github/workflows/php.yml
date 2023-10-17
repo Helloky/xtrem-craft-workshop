@@ -12,14 +12,14 @@ permissions:
 jobs:
   
   build:
-
+    defaults : 
+      run: 
+        working-directory : ./php
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Change Directory to 'php'
-      run: cd php
+  
 
     - name: Cache Composer packages
       id: composer-cache
