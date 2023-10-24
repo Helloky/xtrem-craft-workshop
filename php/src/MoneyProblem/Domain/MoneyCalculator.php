@@ -17,7 +17,7 @@ class MoneyCalculator
     }
 
     /**
-     * subtract two amounts
+     * times two amounts
      * @param float $amount
      * @param Currency $currency
      * @param float $amount2
