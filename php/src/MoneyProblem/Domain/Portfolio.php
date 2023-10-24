@@ -6,33 +6,27 @@ class Portfolio
 {
     private $amounts = [];
 
-    /**
-     * @param float $amount
-     * @param Currency $currency
-     * @param Bank $bank
-     * @return void
-     */
     public function add(float $amount, Currency $currency)
     {
-        $this->amounts[] = [
-            'amount' => $amount,
-            'currency' => $currency,
-        ];
+        $this->amounts[] = compact('amount', 'currency');
     }
 
-    /**
-     * @param Currency $currency
-     * @return float
-     */
-    public function total(Currency $currency, Bank $bank)
+    public function total(Currency $targetCurrency, Bank $bank)
     {
         $total = 0;
+
         foreach ($this->amounts as $amount) {
-            $total += $bank->convert($amount['amount'], $amount['currency'], $currency);
+            $total += $this->convertAmount($amount['amount'], $amount['currency'], $targetCurrency, $bank);
         }
+
         return $total;
     }
 
+    private function convertAmount(float $amount, Currency $fromCurrency, Currency $toCurrency, Bank $bank): float
+    {
+        return $bank->convert($amount, $fromCurrency, $toCurrency);
+    }
 }
+
 
 ?>

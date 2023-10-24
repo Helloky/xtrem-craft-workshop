@@ -2,6 +2,7 @@
 
 namespace MoneyProblem\Domain;
 
+use MoneyProblem\Domain\Currency;
 use function array_key_exists;
 
 class Bank
@@ -44,7 +45,7 @@ class Bank
     {
         $this->exchangeRates[($currency1 . '->' . $currency2)] = $rate;
     }
-
+    
     /**
      * convert an amount from a currency to another
      * @param float $amount
@@ -55,12 +56,29 @@ class Bank
      */
     public function convert(float $amount, Currency $currency1, Currency $currency2): float
     {
-        if (!($currency1 == $currency2 || array_key_exists($currency1 . '->' . $currency2, $this->exchangeRates))) {
-            throw new MissingExchangeRateException($currency1, $currency2);
-        }
-        return $currency1 == $currency2
-            ? $amount
-            : $amount * $this->exchangeRates[($currency1 . '->' . $currency2)];
+        $money1 = Money::create($amount, $currency1);
+        return $this->convertMoney($money1, $currency2, $amount);
     }
+
+    public function convertMoney(Money $money, Currency $to, float $amount): float{
+
+
+        if (!($this->canConvert($money, $to))) {
+            throw new MissingExchangeRateException($money->getCurrency(), $to);
+        }
+
+
+        return $money->getCurrency() == $to
+            ? $amount
+            : $amount * $this->exchangeRates[($money->getCurrency() . '->' . $to)];
+    }
+
+    public function canConvert(Money $money, Currency $to){
+        return $money->getCurrency() == $to || array_key_exists($money->getCurrency() . '->' . $to, $this->exchangeRates);
+    }
+
+    
+
+
 }
 

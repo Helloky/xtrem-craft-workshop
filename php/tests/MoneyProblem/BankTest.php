@@ -97,4 +97,32 @@ class BankTest extends TestCase
 
         $this->assertEquals($testAmount, $bank->convert($initialAmount, $eurCurrency, $usdCurrency));
     }
+
+    public function test_convert_between_currencies()
+    {
+        $exchangeRates = [
+            'USD->EUR' => 0.9,
+            'EUR->JPY' => 120,
+        ];
+
+        $bank = new Bank($exchangeRates);
+
+        // Convert 100 USD to EUR
+        $resultEUR = $bank->convert(100, Currency::USD(), Currency::EUR());
+        $this->assertEquals(90, $resultEUR);
+
+    }
+
+    public function test_convert_with_missing_exchange_rate()
+    {
+        $exchangeRates = [
+            'USD->EUR' => 0.9,
+        ];
+
+        $bank = new Bank($exchangeRates);
+
+        // Try to convert from USD to JPY, which should throw an exception
+        $this->expectException(MissingExchangeRateException::class);
+        $bank->convert(100, Currency::USD(), Currency::JPY());
+    }
 }
