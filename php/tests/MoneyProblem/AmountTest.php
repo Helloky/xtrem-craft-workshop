@@ -35,15 +35,12 @@ class AmountTest extends TestCase
         $amount->add($amountToAdd);
     }
 
-    public function test_add_two_amounts_with_negative_amount()
+    public function test_cant_create_negative_amount()
     {
         $currency = Currency::USD();
 
-        $amount = new Amount(100, $currency);
-        $amountToAdd = new Amount(-100, $currency);
-
         $this->expectException(\InvalidArgumentException::class);
-        $amount->add($amountToAdd);
+        $amountToAdd = new Amount(-100, $currency);
     }
 
     public function test_divide()
