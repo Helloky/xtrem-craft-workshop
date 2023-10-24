@@ -14,8 +14,8 @@ class AmountTest extends TestCase
     {
         $currency = Currency::USD();
 
-        $amount = new Amount(100, $currency);
-        $amountToAdd = new Amount(100, $currency);
+        $amount = Amount::create(100, $currency);
+        $amountToAdd = Amount::create(100, $currency);
 
         $newAmount = $amount->add($amountToAdd);
 
@@ -28,8 +28,8 @@ class AmountTest extends TestCase
         $currency = Currency::USD();
         $currency_different = Currency::EUR();
 
-        $amount = new Amount(100, $currency);
-        $amountToAdd = new Amount(100, $currency_different);
+        $amount = Amount::create(100, $currency);
+        $amountToAdd = Amount::create(100, $currency_different);
 
         $this->expectException(\InvalidArgumentException::class);
         $amount->add($amountToAdd);
@@ -40,14 +40,14 @@ class AmountTest extends TestCase
         $currency = Currency::USD();
 
         $this->expectException(\InvalidArgumentException::class);
-        $amountToAdd = new Amount(-100, $currency);
+        $amountToAdd = Amount::create(-100, $currency);
     }
 
     public function test_divide()
     {
         $currency = Currency::USD();
 
-        $amount = new Amount(100, $currency);
+        $amount = Amount::create(100, $currency);
 
         $newAmount = $amount->divide(2);
 
@@ -59,7 +59,7 @@ class AmountTest extends TestCase
     {
         $currency = Currency::USD();
 
-        $amount = new Amount(100, $currency);
+        $amount = Amount::create(100, $currency);
 
         $this->expectException(\InvalidArgumentException::class);
         $amount->divide(0);
